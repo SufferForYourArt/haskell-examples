@@ -7,22 +7,23 @@ f = "fizz"
 b = "buzz"
 fb = f ++ b
 
-prop_fuzzlebuzzle :: Int -> Bool
-prop_fuzzlebuzzle x = case fuzzlebuzzle x of
-                        "fizz"     -> fuzzlebuzzle (x * 3) == f &&
-                                      fuzzlebuzzle (x * 5) == fb &&
-                                      fuzzlebuzzle (x * 3 * 5) == fb
+prop_fizzleMaBizzle :: Int -> Bool
+prop_fizzleMaBizzle x = case fizzleMaBizzle x of
+                        "fizz"     -> fizzleMaBizzle (x * 3) == f &&
+                                      fizzleMaBizzle (x * 5) == fb &&
+                                      fizzleMaBizzle (x * 3 * 5) == fb
 
-                        "buzz"     -> fuzzlebuzzle (x * 3) == fb &&
-                                      fuzzlebuzzle (x * 5) == b &&
-                                      fuzzlebuzzle (x * 3 * 5) == fb
+                        "buzz"     -> fizzleMaBizzle (x * 3) == fb &&
+                                      fizzleMaBizzle (x * 5) == b &&
+                                      fizzleMaBizzle (x * 3 * 5) == fb
 
-                        "fizzbuzz" -> fuzzlebuzzle (x * 3) == fb &&
-                                      fuzzlebuzzle (x * 5) == fb &&
-                                      fuzzlebuzzle (x * 3 * 5) == fb
+                        "fizzbuzz" -> fizzleMaBizzle (x * 3) == fb &&
+                                      fizzleMaBizzle (x * 5) == fb &&
+                                      fizzleMaBizzle (x * 3 * 5) == fb
 
-                        _          -> fuzzlebuzzle (x * 3) == f &&
-                                      fuzzlebuzzle (x * 5) == b &&
-                                      fuzzlebuzzle (x * 3 * 5) == fb
+                        result     -> (read result :: Int) == x &&
+                                      fizzleMaBizzle (x * 3) == f &&
+                                      fizzleMaBizzle (x * 5) == b &&
+                                      fizzleMaBizzle (x * 3 * 5) == fb
 
-test = quickCheck prop_fuzzlebuzzle
+test = quickCheck prop_fizzleMaBizzle

@@ -1,15 +1,12 @@
 module App where
 
-main = mapM_ putStrLn (map fuzzlebuzzle [1..100])
+main = mapM_ putStrLn (map fizzleMaBizzle [1..100])
 
-fuzzlebuzzle :: Int -> String
-fuzzlebuzzle x = fizzBuzz x
-fizzBuzz x = if (db3 x && db5 x) then "fizzbuzz" else fizz x
-fizz x = if db3 x then "fizz" else buzz x
-buzz x = if db5 x then "buzz" else show x
+fizzleMaBizzle :: Int -> String
+fizzleMaBizzle x = fizzBuzz x
+fizzBuzz x = if x `divisable` 15 then "fizzbuzz" else fizz x
+fizz x = if x `divisable` 3 then "fizz" else buzz x
+buzz x = if x `divisable` 5 then "buzz" else show x
 
-db3 :: Int -> Bool
-db3 x = mod x 3 == 0
-
-db5 :: Int -> Bool
-db5 x = mod x 5 == 0
+divisable :: Int -> Int -> Bool
+divisable x y = x `mod` y == 0
