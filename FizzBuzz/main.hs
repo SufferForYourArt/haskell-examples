@@ -10,7 +10,7 @@ fizzleMaBizzle x = unwrap (fizzBuzz x `orElse` fizz x `orElse` buzz x `orElse` n
 fizz :: Int -> Maybe String
 fizz x = case x `divisable` 3 of
             True  -> Just "fizz"
-            False -> Nothing``
+            False -> Nothing
 
 buzz :: Int -> Maybe String
 buzz x = case x `divisable` 5 of
