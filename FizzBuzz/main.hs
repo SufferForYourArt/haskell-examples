@@ -9,7 +9,7 @@ fizzleMaBizzle x
   | x `isDivisableBy` 15 = "fizzbuzz"
   | x `isDivisableBy` 3  = "fizz"
   | x `isDivisableBy` 5  = "buzz"
-  | otherwise = show x
+  | otherwise            = show x
 
 isDivisableBy :: Int -> Int -> Bool
 isDivisableBy x y = x `mod` y == 0
