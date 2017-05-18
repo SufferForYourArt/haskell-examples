@@ -2,7 +2,7 @@ module App where
 
 import Data.Generics.Aliases
 
-main = mapM putStrLn (map fizzleMaBizzle [1..100])
+main = mapM_ putStrLn (map fizzleMaBizzle [1..100])
 
 fizzleMaBizzle :: Int -> String
 fizzleMaBizzle x
