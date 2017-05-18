@@ -6,10 +6,10 @@ main = mapM_ putStrLn (map fizzleMaBizzle [1..100])
 
 fizzleMaBizzle :: Int -> String
 fizzleMaBizzle x
-  | x `isDivisableBy` 15 = "fizzbuzz"
-  | x `isDivisableBy` 3  = "fizz"
-  | x `isDivisableBy` 5  = "buzz"
+  | x `isDifizzableBy` 15 = "fizzbuzz"
+  | x `isDifizzableBy` 3  = "fizz"
+  | x `isDifizzableBy` 5  = "buzz"
   | otherwise            = show x
 
-isDivisableBy :: Int -> Int -> Bool
-isDivisableBy x y = x `mod` y == 0
+isDifizzableBy :: Int -> Int -> Bool
+isDifizzableBy x y = x `mod` y == 0
